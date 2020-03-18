@@ -11,23 +11,30 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 })
 
+const DEFAULT_NUMBER_OF_SEATS = 10
 
-class App extends Component {
+function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
+  const columns = ['A', 'B']
+  const rows = [...Array(Math.ceil(numberOfSeats / 2)).keys()]
+  const seatLocations = rows.reduce(
+    (prev, curr, i) => [...prev, ...(columns.map(x => x + curr))], []
+  ).reduce(
+    (prev, curr, i) => [
+      [...prev[0], ...(i % 2 === 0 ? [curr] : [])], [...prev[1], ...(i % 2 !== 0 ? [curr] : [])],
+    ], [[], []])
 
-  defaultNumberOfSeats = 10
-  defaultColumns = ['A', 'B']
-  defaultRows = [...Array(this.defaultNumberOfSeats / 2).keys()]
-  defaultSeatLocations = this.defaultRows.reduce(
-    (prev, curr, i) => [...prev, ...(this.defaultColumns.map(x => x + curr))], []
-  )
+  return seatLocations
+}
 
-  seatLocations = this.props.seatLocations || this.defaultSeatLocations;
-  seats = this.seatLocations.map(x => <Seat seatLocation={x}></Seat>)
-
+class Table extends Component {
+  numberOfSeats = this.props.seatLocations && this.props.seatLocations.length
+    || this.props.numberOfSeats || DEFAULT_NUMBER_OF_SEATS
+  seatLocations = this.props.seatLocations || createSeatLocations(this.numberOfSeats, this.props.tableEndSeatAllowed);
+  seats = this.seatLocations.map((x, xi) => [x.map(y => <Seat seatLocation={y}></Seat>), xi == 0 ? <br /> : ''])
   render() {
     return (
       <pre>{this.seats}</pre>
     );
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
