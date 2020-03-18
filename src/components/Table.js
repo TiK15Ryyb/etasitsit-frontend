@@ -21,7 +21,8 @@ function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
   ).reduce(
     (prev, curr, i) => [
       [...prev[0], ...(i % 2 === 0 ? [curr] : [])], [...prev[1], ...(i % 2 !== 0 ? [curr] : [])],
-    ], [[], []])
+    ], [[], []]
+  )
 
   return seatLocations
 }
@@ -30,7 +31,7 @@ class Table extends Component {
   numberOfSeats = this.props.seatLocations && this.props.seatLocations.length
     || this.props.numberOfSeats || DEFAULT_NUMBER_OF_SEATS
   seatLocations = this.props.seatLocations || createSeatLocations(this.numberOfSeats, this.props.tableEndSeatAllowed);
-  seats = this.seatLocations.map((x, xi) => [x.map(y => <Seat seatLocation={y}></Seat>), xi == 0 ? <br /> : ''])
+  seats = this.seatLocations.map((x, xi) => [x.map(y => <Seat seatLocation={y} key={y}></Seat>), xi === 0 ? <br /> : ''])
   render() {
     return (
       <pre>{this.seats}</pre>
