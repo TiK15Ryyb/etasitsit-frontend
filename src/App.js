@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import "./App.css";
 
-import Table from "./components/Table";
+import Sitsit from "./components/Sitsit";
 
 const mapStateToProps = state => ({
   seat: state.userReducer.seat || ""
@@ -26,7 +26,7 @@ const App = (props) => {
           state:
             {JSON.stringify(props)}
         </pre>
-        <Table></Table>
+        <Sitsit></Sitsit>
       </header>
       <p className="App-intro">
         To get started, edit <code>src/App.js</code> and save to reload
