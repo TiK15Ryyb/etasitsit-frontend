@@ -24,6 +24,8 @@ const archivePath = path.join(buildsDir, archiveName);
 const CREATE_ARCHIVE = `uname -a | grep -iqv cygwin && tar czvf ${archivePath} -C ${distDir} . && echo "Built ${archiveName}" || echo "skipping archive creation, unsupported platform"`;
 
 
+const Dotenv = require('dotenv-webpack');
+
 module.exports = {
     entry: './src/index.js',
     resolve: {
@@ -92,6 +94,7 @@ module.exports = {
             },
             safe: true,
         }),
+        new Dotenv(),
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),

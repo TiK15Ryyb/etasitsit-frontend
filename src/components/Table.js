@@ -31,9 +31,9 @@ function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // es
 
 class Table extends Component {
     static propTypes = {
-        seatLocations: array.isRequired(),
-        numberOfSeats: number.isRequired(),
-        tableEndSeatAllowed: bool.isRequired(),
+        seatLocations: array.isRequired,
+        numberOfSeats: number.isRequired,
+        tableEndSeatAllowed: bool.isRequired,
     }
     numberOfSeats =
         (this.props.seatLocations && this.props.seatLocations.length) ||

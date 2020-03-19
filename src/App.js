@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
 
 class App extends Component {
     static propTypes = {
-        seat: string.isRequired(),
+        seat: string.isRequired,
     };
 
     render() {

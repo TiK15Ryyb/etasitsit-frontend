@@ -34,5 +34,8 @@
         }],
         "no-lonely-if": "error",
         "no-throw-literal": "error"
+    },
+    "globals": {
+        "process": "readonly"
     }
 }
