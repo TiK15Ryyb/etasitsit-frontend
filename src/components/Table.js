@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import "../App.css";
 
@@ -28,20 +28,20 @@ function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
   return seatLocations;
 }
 
-class Table extends Component {
-  numberOfSeats =
-    (this.props.seatLocations && this.props.seatLocations.length) ||
-    this.props.numberOfSeats ||
+const Table = (props) => {
+  const numberOfSeats =
+    (props.seatLocations && props.seatLocations.length) ||
+    props.numberOfSeats ||
     DEFAULT_NUMBER_OF_SEATS;
-  seatLocations =
-    this.props.seatLocations ||
-    createSeatLocations(this.numberOfSeats, this.props.tableEndSeatAllowed);
-  seats = this.seatLocations.map((x, xi) => [
+  const seatLocations =
+    props.seatLocations ||
+    createSeatLocations(numberOfSeats, props.tableEndSeatAllowed);
+  const seats = seatLocations.map((x, xi) => [
     x.map(y => <Seat seatLocation={y}></Seat>),
     xi === 0 ? <br /> : ""
   ]);
-  render() {
-    return <pre>{this.seats}</pre>;
-  }
+
+  return <pre>{seats}</pre>;
+
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
