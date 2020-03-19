@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import "./App.css";
 
@@ -10,30 +10,28 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({});
 
-class App extends Component {
-  render() {
-    const seatSituation = this.props.seat ? (
-      <h1>Your seat is {this.props.seat}</h1>
-    ) : (
-        <h1> Take a seat!</h1>
-      );
-
-    return (
-      <div className="App">
-        <header className="App-header">
-          {seatSituation}
-          <pre>
-            {" "}
-            state:
-            {JSON.stringify(this.props)}
-          </pre>
-          <Table></Table>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload
-        </p>
-      </div>
+const App = (props) => {
+  const seatSituation = props.seat ? (
+    <h1>Your seat is {props.seat}</h1>
+  ) : (
+      <h1> Take a seat!</h1>
     );
-  }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        {seatSituation}
+        <pre>
+          {" "}
+          state:
+            {JSON.stringify(props)}
+        </pre>
+        <Table></Table>
+      </header>
+      <p className="App-intro">
+        To get started, edit <code>src/App.js</code> and save to reload
+        </p>
+    </div>
+  );
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
