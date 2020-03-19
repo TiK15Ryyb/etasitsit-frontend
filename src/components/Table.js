@@ -24,7 +24,6 @@ function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
       ],
       [[], []]
     );
-
   return seatLocations;
 }
 
@@ -37,8 +36,8 @@ class Table extends Component {
     this.props.seatLocations ||
     createSeatLocations(this.numberOfSeats, this.props.tableEndSeatAllowed);
   seats = this.seatLocations.map((x, xi) => [
-    x.map(y => <Seat seatLocation={y}></Seat>),
-    xi == 0 ? <br /> : ""
+    x.map(y => <Seat key={y} seatLocation={y} />),
+    xi === 0 ? <br /> : ""
   ]);
   render() {
     return <pre>{this.seats}</pre>;
