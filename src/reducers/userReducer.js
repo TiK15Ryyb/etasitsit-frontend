@@ -5,6 +5,22 @@ export default (state = {}, action) => {
         ...state,
         seat: action.payload
       };
+    case "UPDATE_USER_INFO_FORM_ACTION":
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          ...action.payload
+        }
+      }
+    case "SUBMIT_USER_INFO_FORM_ACTION":
+      return {
+        ...state,
+        info: {
+          ...state.info,
+          ...action.payload
+        }
+      }
     default:
       return state;
   }

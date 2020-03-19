@@ -3,23 +3,28 @@ import { connect } from "react-redux";
 import "./App.css";
 
 import Table from "./components/Table";
+import UserForm from "./components/UserForm";
 
 const mapStateToProps = state => ({
-  seat: state.userReducer.seat || ""
+  seat: state.userReducer.seat || "",
+  info: state.userReducer.info || {},
+  ...state
 });
 
 const mapDispatchToProps = dispatch => ({});
 
 const App = (props) => {
+  const name = props.info.name;
   const seatSituation = props.seat ? (
-    <h1>Your seat is {props.seat}</h1>
+    <h1>Your seat is {props.seat}{name ? ", " + name : ""}.</h1>
   ) : (
-      <h1> Take a seat!</h1>
+      <h1> Take a seat{name ? ", " + name : ""}!</h1>
     );
 
   return (
     <div className="App">
       <header className="App-header">
+        <UserForm></UserForm>
         {seatSituation}
         <pre>
           {" "}
