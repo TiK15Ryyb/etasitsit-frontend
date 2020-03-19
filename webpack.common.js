@@ -3,7 +3,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: 'src/index.html',
+    template: 'public/index.html',
     filename: 'index.html',
     title: 'JS Example Project',
     inject: 'body',
@@ -25,7 +25,7 @@ const CREATE_ARCHIVE = `uname -a | grep -iqv cygwin && tar czvf ${archivePath} -
 
 
 module.exports = {
-    entry: './src/index.jsx',
+    entry: './src/index.js',
     resolve: {
         extensions: ['.js', '.jsx'],
     },

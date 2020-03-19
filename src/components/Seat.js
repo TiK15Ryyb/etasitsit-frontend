@@ -2,24 +2,30 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import { takeSeatAction } from "../actions/takeSeatAction";
+import { fn } from 'prop-types';
 
 const mapStateToProps = state => ({
-  ...state
+    ...state,
 });
 
 const mapDispatchToProps = dispatch => ({
-  takeSeatAction: id => dispatch(takeSeatAction(id))
+    takeSeatAction: id => dispatch(takeSeatAction(id)),
 });
 
 class Seat extends Component {
-  seatLocation = this.props.seatLocation;
+    static propTypes = {
+        takeSeatAction: fn.isRequired(),
+        seatLocation: fn.isRequired(),
+    };
 
-  takeSeatAction = event => {
-    this.props.takeSeatAction(this.seatLocation);
-  };
+    seatLocation = this.props.seatLocation;
 
-  render() {
-    return <button onClick={this.takeSeatAction}>{this.seatLocation}</button>;
-  }
+    takeSeatAction = () => {
+        this.props.takeSeatAction(this.seatLocation);
+    };
+
+    render() {
+        return <button onClick={this.takeSeatAction}>{this.seatLocation}</button>;
+    }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Seat);
