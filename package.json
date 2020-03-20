@@ -29,6 +29,8 @@
     "@material-ui/core": "^4.7.2",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.5.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^10.0.1",
     "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -73,8 +75,10 @@
     },
     "testResultsProcessor": "jest-sonar-reporter",
     "setupFiles": [
-      "./src/setupTests.js",
       "jest-prop-type-error"
+    ],
+    "setupFilesAfterEnv": [
+      "./src/setupTests.js"
     ],
     "browser": true,
     "collectCoverage": true,

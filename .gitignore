@@ -26,3 +26,4 @@ dist
 assets
 package-lock.json
 builds
+test-report.xml
