@@ -1,11 +1,12 @@
+import {TAKE_SEAT_ACTION, UPDATE_USER_INFO_FORM_ACTION, SUBMIT_USER_INFO_FORM_ACTION} from './constans/actions'
 export default (state = {}, action) => {
   switch (action.type) {
-    case "TAKE_SEAT_ACTION":
+    case TAKE_SEAT_ACTION:
       return {
         ...state,
         seat: action.payload
       };
-    case "UPDATE_USER_INFO_FORM_ACTION":
+    case UPDATE_USER_INFO_FORM_ACTION:
       return {
         ...state,
         form: {
@@ -13,7 +14,7 @@ export default (state = {}, action) => {
           ...action.payload
         }
       }
-    case "SUBMIT_USER_INFO_FORM_ACTION":
+    case SUBMIT_USER_INFO_FORM_ACTION:
       return {
         ...state,
         info: {
