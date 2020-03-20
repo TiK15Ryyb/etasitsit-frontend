@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./App.css";
-import { string } from 'prop-types';
+import { string, shape } from 'prop-types';
 
 import Table from "./components/Table";
 import UserForm from "./components/UserForm";
 
 const mapStateToProps = state => ({
     seat: state.userReducer.seat || "",
+    info: state.userReducer.info || {},
 });
 
 const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
@@ -41,5 +42,8 @@ const App = (props) => {
 
 App.propTypes = {
   seat: string.isRequired,
+  info: shape({
+    name: string
+  }).isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);
