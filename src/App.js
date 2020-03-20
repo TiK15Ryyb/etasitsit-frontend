@@ -4,7 +4,7 @@ import "./App.css";
 import { string, shape } from 'prop-types';
 
 import Table from "./components/Table";
-import UserForm from "./components/UserForm";
+import UserForm from "./components/UserForm"; // eslint-disable-line
 
 const mapStateToProps = state => ({
     seat: state.userReducer.seat || "",
@@ -23,17 +23,17 @@ const App = (props) => {
 
     return (
 
-      <div className="App">
-        <header className="App-header">
-          {seatSituation}
-          <pre>
-            {" "}
+        <div className="App">
+            <header className="App-header">
+                {seatSituation}
+                <pre>
+                    {" "}
             state:
-            {JSON.stringify(this.props)}
-          </pre>
-          <Table></Table>
-        </header>
-      </div>
+                    {JSON.stringify(this.props)}
+                </pre>
+                <Table></Table>
+            </header>
+        </div>
     );
 };
 
