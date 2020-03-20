@@ -25,7 +25,7 @@ const App = (props) => {
 
         <div className="App">
             <header className="App-header">
-              <UserForm></UserForm>
+                <UserForm></UserForm>
                 {seatSituation}
                 <pre>
                     {" "}
