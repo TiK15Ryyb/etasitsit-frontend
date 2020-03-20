@@ -1,5 +1,5 @@
 # Etäsitsit Frontend
-[![Build Status](https://jenkins.alatvala.fi/job/TiK15Ryyb/job/etasitsit-frontend/job/master/badge/icon)](https://jenkins.alatvala.fi/job/TiK15Ryyb/job/etasitsit-frontend/job/master/)
+[![Build Status](https://jenkins.alatvala.fi/buildStatus/icon?job=TiK15Ryyb%2Fetasitsit-frontend%2Fmaster)](https://jenkins.alatvala.fi/job/TiK15Ryyb/job/etasitsit-frontend/job/master/)
 [![Quality Gate](https://sonar.alatvala.fi/api/badges/gate?key=etasitsit-frontend)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
 [![Lines](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=lines)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
 [![Percentage of comments](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=comment_lines_density)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
