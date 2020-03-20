@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "../App.css";
 import { submitUserInfoAction } from '../actions/submitUserInfoAction'
@@ -14,6 +15,14 @@ const mapDispatchToProps = dispatch => ({
   updateUserInfoFormAction: info => dispatch(updateUserInfoFormAction(info))
 });
 
+const propTypes = {
+  info: PropTypes.shape({
+    name: PropTypes.string
+  }),
+  form: PropTypes.shape({
+    name: PropTypes.string
+  })
+}
 
 const UserForm = (props) => {
 
@@ -39,5 +48,8 @@ const UserForm = (props) => {
     </form>
   )
 }
+
+
+UserForm.propTypes = propTypes
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
