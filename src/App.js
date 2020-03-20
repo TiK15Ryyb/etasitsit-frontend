@@ -22,21 +22,18 @@ const App = (props) => {
     );
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <UserForm></UserForm>
-                {seatSituation}
-                <pre>
-                    {" "}
-          state:
-                    {JSON.stringify(props)}
-                </pre>
-                <Table></Table>
-            </header>
-            <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload
-            </p>
-        </div>
+
+      <div className="App">
+        <header className="App-header">
+          {seatSituation}
+          <pre>
+            {" "}
+            state:
+            {JSON.stringify(this.props)}
+          </pre>
+          <Table></Table>
+        </header>
+      </div>
     );
 };
 

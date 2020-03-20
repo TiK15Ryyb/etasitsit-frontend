@@ -26,6 +26,7 @@ function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // es
         );
 
     return seatLocations;
+
 }
 
 const Table = (props) => {
@@ -50,4 +51,5 @@ Table.propTypes = {
     numberOfSeats: number.isRequired,
     tableEndSeatAllowed: bool.isRequired,
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
