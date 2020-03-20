@@ -3,14 +3,19 @@ import { connect } from "react-redux";
 import "../App.css";
 
 import Table from "./Table";
+import { arrayOf } from "prop-types";
+import { table } from "../propTypes";
 
 const DEFAULT_NUMBER_OF_TABLES = 2
 
-const mapStateToProps = state => ({
-  ...state
-});
+const mapStateToProps = () => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = () => ({});
+
+const propTypes = {
+  tables: arrayOf(table),
+  numberOfTables: number,
+}
 
 function createTables(numberOfTables) {
   return [...Array(numberOfTables).keys()].map(x => <Table key={"table" + x} tableId={x}></Table>)
@@ -24,4 +29,7 @@ const Sitsit = (props) => {
     <div>{tables}</div>
   );
 }
+
+Sitsit.propTypes = propTypes
+
 export default connect(mapStateToProps, mapDispatchToProps)(Sitsit);
