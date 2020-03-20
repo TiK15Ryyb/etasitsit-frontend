@@ -16,11 +16,11 @@ const mapDispatchToProps = dispatch => ({
 const Seat = (props) => {
   const seatLocation = props.seatLocation;
 
-  const takeSeatAction = event => {
+  const takeSeat = event => {
     props.takeSeatAction(seatLocation);
   };
 
-  return <button onClick={takeSeatAction}>{seatLocation}</button>;
+  return <button onClick={takeSeat}>{seatLocation}</button>;
 }
 
 Seat.propTypes = {
