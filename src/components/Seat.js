@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import { takeSeatAction } from "../actions/takeSeatAction";
-import { func } from 'prop-types';
+import { func, string } from 'prop-types';
 
 const mapStateToProps = state => ({
     ...state,
@@ -16,16 +16,16 @@ const mapDispatchToProps = dispatch => ({
 const Seat = (props) => {
   const seatLocation = props.seatLocation;
 
-  const takeSeatAction = event => {
+  const takeSeat = event => {
     props.takeSeatAction(seatLocation);
   };
 
-  return <button onClick={takeSeatAction}>{seatLocation}</button>;
+  return <button onClick={takeSeat}>{seatLocation}</button>;
 }
 
 Seat.propTypes = {
   takeSeatAction: func.isRequired,
-  seatLocation: func.isRequired,
+  seatLocation: string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Seat);
