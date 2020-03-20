@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import { takeSeatAction } from "../actions/takeSeatAction";
@@ -12,20 +12,20 @@ const mapDispatchToProps = dispatch => ({
     takeSeatAction: id => dispatch(takeSeatAction(id)),
 });
 
-class Seat extends Component {
-    static propTypes = {
-        takeSeatAction: func.isRequired,
-        seatLocation: func.isRequired,
-    };
 
-    seatLocation = this.props.seatLocation;
+const Seat = (props) => {
+  const seatLocation = props.seatLocation;
 
-    takeSeatAction = () => {
-        this.props.takeSeatAction(this.seatLocation);
-    };
+  const takeSeatAction = event => {
+    props.takeSeatAction(seatLocation);
+  };
 
-    render() {
-        return <button onClick={this.takeSeatAction}>{this.seatLocation}</button>;
-    }
+  return <button onClick={takeSeatAction}>{seatLocation}</button>;
 }
+
+Seat.propTypes = {
+  takeSeatAction: func.isRequired,
+  seatLocation: func.isRequired,
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Seat);

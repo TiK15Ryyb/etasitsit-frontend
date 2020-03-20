@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import { array, number, bool } from 'prop-types';
@@ -29,25 +29,26 @@ function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // es
     return seatLocations;
 }
 
-class Table extends Component {
-    static propTypes = {
-        seatLocations: array.isRequired,
-        numberOfSeats: number.isRequired,
-        tableEndSeatAllowed: bool.isRequired,
-    }
-    numberOfSeats =
-        (this.props.seatLocations && this.props.seatLocations.length) ||
-        this.props.numberOfSeats ||
-        DEFAULT_NUMBER_OF_SEATS;
-    seatLocations =
-        this.props.seatLocations ||
-        createSeatLocations(this.numberOfSeats, this.props.tableEndSeatAllowed);
-    seats = this.seatLocations.map((x, xi) => [
-        x.map(y => <Seat key={x+"."+xi} seatLocation={y}></Seat>),
-        xi === 0 ? <br /> : "",
-    ]);
-    render() {
-        return <pre>{this.seats}</pre>;
-    }
+const Table = (props) => {
+  const numberOfSeats =
+    (props.seatLocations && props.seatLocations.length) ||
+    props.numberOfSeats ||
+    DEFAULT_NUMBER_OF_SEATS;
+  const seatLocations =
+    props.seatLocations ||
+    createSeatLocations(numberOfSeats, props.tableEndSeatAllowed);
+  const seats = seatLocations.map((x, xi) => [
+    x.map(y => <Seat seatLocation={y}></Seat>),
+    xi === 0 ? <br /> : ""
+  ]);
+
+  return <pre>{seats}</pre>;
+
+
 }
+Table.propTypes = {
+  seatLocations: array.isRequired,
+  numberOfSeats: number.isRequired,
+  tableEndSeatAllowed: bool.isRequired,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
