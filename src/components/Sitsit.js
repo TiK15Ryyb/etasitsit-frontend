@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "../App.css";
 
 import Table from "./Table";
-import { arrayOf } from "prop-types";
+import { arrayOf, number } from "prop-types";
 import { table } from "../propTypes";
 
 const DEFAULT_NUMBER_OF_TABLES = 2
