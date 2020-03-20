@@ -12,6 +12,11 @@ const mapDispatchToProps = dispatch => ({
     takeSeatAction: id => dispatch(takeSeatAction(id)),
 });
 
+const propTypes = {
+  takeSeatAction: func.isRequired,
+  seatLocation: string.isRequired,
+}
+
 
 const Seat = (props) => {
   const seatLocation = props.seatLocation;
@@ -23,9 +28,6 @@ const Seat = (props) => {
   return <button onClick={takeSeatAction}>{seatLocation}</button>;
 }
 
-Seat.propTypes = {
-  takeSeatAction: func.isRequired,
-  seatLocation: string.isRequired,
-};
+Seat.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Seat);

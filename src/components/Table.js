@@ -10,6 +10,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
 
+const propTypes = {
+  seatLocations: array.isRequired,
+  numberOfSeats: number.isRequired,
+  tableEndSeatAllowed: bool.isRequired,
+}
+
 const DEFAULT_NUMBER_OF_SEATS = 10;
 
 function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // eslint-disable-line
@@ -45,9 +51,6 @@ const Table = (props) => {
 
 
 }
-Table.propTypes = {
-  seatLocations: array.isRequired,
-  numberOfSeats: number.isRequired,
-  tableEndSeatAllowed: bool.isRequired,
-};
+Table.propTypes = propTypes;
+
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

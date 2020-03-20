@@ -5,6 +5,7 @@ import { string, shape } from 'prop-types';
 
 import Table from "./components/Table";
 import UserForm from "./components/UserForm";
+import { userInfo } from "../propTypes";
 
 const mapStateToProps = state => ({
     seat: state.userReducer.seat || "",
@@ -12,6 +13,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
+
+const propTypes = {
+  seat: string.isRequired,
+  info: userInfo.isRequired
+}
 
 const App = (props) => {
   const name = props.info.name;
@@ -40,10 +46,5 @@ const App = (props) => {
   );
 }
 
-App.propTypes = {
-  seat: string.isRequired,
-  info: shape({
-    name: string
-  }).isRequired
-};
+App.propTypes = propTypes;
 export default connect(mapStateToProps, mapDispatchToProps)(App);
