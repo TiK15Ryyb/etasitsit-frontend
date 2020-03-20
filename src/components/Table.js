@@ -5,7 +5,7 @@ import { array, number, bool } from 'prop-types';
 
 import Seat from "./Seat";
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => ({ // eslint-disable-line
 });
 
 const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
@@ -29,25 +29,25 @@ function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // es
 }
 
 const Table = (props) => {
-  const numberOfSeats =
+    const numberOfSeats =
     (props.seatLocations && props.seatLocations.length) ||
     props.numberOfSeats ||
     DEFAULT_NUMBER_OF_SEATS;
-  const seatLocations =
+    const seatLocations =
     props.seatLocations ||
     createSeatLocations(numberOfSeats, props.tableEndSeatAllowed);
-  const seats = seatLocations.map((x, xi) => [
-    x.map(y => <Seat seatLocation={y}></Seat>),
-    xi === 0 ? <br /> : ""
-  ]);
+    const seats = seatLocations.map((x, xi) => [
+        x.map(y => <Seat key={`${x}:${y}`} seatLocation={y}></Seat>),
+        xi === 0 ? <br /> : "",
+    ]);
 
-  return <pre>{seats}</pre>;
+    return <pre>{seats}</pre>;
 
 
-}
+};
 Table.propTypes = {
-  seatLocations: array.isRequired,
-  numberOfSeats: number.isRequired,
-  tableEndSeatAllowed: bool.isRequired,
+    seatLocations: array.isRequired,
+    numberOfSeats: number.isRequired,
+    tableEndSeatAllowed: bool.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
