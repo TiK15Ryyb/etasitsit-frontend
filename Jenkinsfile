@@ -49,8 +49,7 @@ pipeline {
                 expression { GIT_BRANCH == 'master' }
             }
             steps {
-                sh 'echo disabled'
-                /*script {
+                script {
                     rtUpload (
                         serverId: 'VonLatvala Artifactory',
                         specPath: 'artifactFilespec.json',
@@ -59,7 +58,7 @@ pipeline {
                     rtPublishBuildInfo (
                         serverId: 'VonLatvala Artifactory',
                     )
-                }*/
+                }
             }
         }
 /*        stage('Robot Tests') {
