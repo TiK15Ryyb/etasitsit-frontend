@@ -1,11 +1,11 @@
 export default (state = {}, action) => {
-  switch (action.type) {
+    switch (action.type) {
     case "SIMPLE_ACTION":
-      return {
-        ...state,
-        result: action.payload
-      };
+        return {
+            ...state,
+            result: action.payload,
+        };
     default:
-      return state;
-  }
+        return state;
+    }
 };

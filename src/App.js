@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./App.css";
+import { string } from 'prop-types';
 
 import Table from "./components/Table";
 
 const mapStateToProps = state => ({
-  seat: state.userReducer.seat || ""
+    seat: state.userReducer.seat || "",
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
 
 const App = (props) => {
   const seatSituation = props.seat ? (
@@ -34,4 +35,8 @@ const App = (props) => {
     </div>
   );
 }
+
+App.propTypes = {
+  seat: string.isRequired,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(App);

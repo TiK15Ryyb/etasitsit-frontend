@@ -22,4 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+dist
+assets
 package-lock.json
+builds
+test-report.xml
