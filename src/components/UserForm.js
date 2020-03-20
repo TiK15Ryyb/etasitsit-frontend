@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "../App.css";
 import { submitUserInfoAction } from '../actions/submitUserInfoAction'
 import { updateUserInfoFormAction } from '../actions/updateUserInfoFormAction'
-import { userInfo, userFormInfo } from "../../propTypes";
+import { userInfo, userFormInfo } from "../propTypes"
 import { func } from "prop-types";
 
 const mapStateToProps = state => ({

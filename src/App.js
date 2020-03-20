@@ -5,7 +5,7 @@ import { string, shape } from 'prop-types';
 
 import Table from "./components/Table";
 import UserForm from "./components/UserForm";
-import { userInfo } from "../propTypes";
+import { userInfo } from "./propTypes";
 
 const mapStateToProps = state => ({
     seat: state.userReducer.seat || "",
