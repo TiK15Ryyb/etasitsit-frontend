@@ -14,18 +14,18 @@ const mapDispatchToProps = dispatch => ({
 
 
 const Seat = (props) => {
-  const seatLocation = props.seatLocation;
+    const seatLocation = props.seatLocation;
 
-  const takeSeat = event => {
-    props.takeSeatAction(seatLocation);
-  };
+    const takeSeat = event => { // eslint-disable-line
+        props.takeSeatAction(seatLocation);
+    };
 
-  return <button onClick={takeSeat}>{seatLocation}</button>;
-}
+    return <button onClick={takeSeat}>{seatLocation}</button>;
+};
 
 Seat.propTypes = {
-  takeSeatAction: func.isRequired,
-  seatLocation: string.isRequired,
+    takeSeatAction: func.isRequired,
+    seatLocation: string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Seat);
