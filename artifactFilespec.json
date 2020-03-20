@@ -1,6 +1,8 @@
 {
-    "files": [{
-        "pattern": "builds/latvala-fireworks-(*)-b(*).tar.gz",
-        "target": "latvala-fireworks/{1}-b{2}/software.tar.gz"
-    }]
+  "files": [
+    {
+      "pattern": "builds/latvala-fireworks-(*)-b(*).tar.gz",
+      "target": "latvala-fireworks/{1}-b{2}/software.tar.gz"
+    }
+  ]
 }

@@ -1,4 +1,5 @@
 # Etäsitsit Frontend
+
 [![Build Status](https://jenkins.alatvala.fi/buildStatus/icon?job=TiK15Ryyb%2Fetasitsit-frontend%2Fmaster)](https://jenkins.alatvala.fi/job/TiK15Ryyb/job/etasitsit-frontend/job/master/)
 [![Quality Gate](https://sonar.alatvala.fi/api/badges/gate?key=etasitsit-frontend)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
 [![Lines](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=lines)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
@@ -25,32 +26,32 @@ This repository holds the open source code for Etäsitsit Frontend
 
 These steps primarily apply to a non-Windows platform, but it is absolutely possible developing on Windows too.
 
-* Have [yarn installed](https://yarnpkg.com/lang/en/docs/install).
-* Have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-* (Optional) Have [Docker CE installed](https://docs.docker.com/install/#supported-platforms)
-* (Optional, but highly recommended) Configure your editor of choice to use [ESLint](https://eslint.org/docs/user-guide/getting-started).
-    * For ([Neo](https://github.com/neovim/neovim/wiki/Installing-Neovim))[Vim](https://www.vim.org/download.php) (non-neo >=8), using [Worp/Ale](https://github.com/w0rp/ale#3-installation) is highly recommended. For first time vim users, using this in conjunction with [Vim Bootstrap](https://vim-bootstrap.com/) might be a good start.
-    * For [Visual Studio Code](https://code.visualstudio.com/Download), using [ESLint from the marketplace](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is highly recommended.
-    * For emacs users, `> using emacs`
-* Clone this repository i.e.
+- Have [yarn installed](https://yarnpkg.com/lang/en/docs/install).
+- Have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- (Optional) Have [Docker CE installed](https://docs.docker.com/install/#supported-platforms)
+- (Optional, but highly recommended) Configure your editor of choice to use [ESLint](https://eslint.org/docs/user-guide/getting-started).
+  - For ([Neo](https://github.com/neovim/neovim/wiki/Installing-Neovim))[Vim](https://www.vim.org/download.php) (non-neo >=8), using [Worp/Ale](https://github.com/w0rp/ale#3-installation) is highly recommended. For first time vim users, using this in conjunction with [Vim Bootstrap](https://vim-bootstrap.com/) might be a good start.
+  - For [Visual Studio Code](https://code.visualstudio.com/Download), using [ESLint from the marketplace](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is highly recommended.
+  - For emacs users, `> using emacs`
+- Clone this repository i.e.
 
 ```sh
 git clone git@github.com:TiK15Ryyb/etasitsit-frontend.git
 ```
 
-* cd into the cloned folder i.e.
+- cd into the cloned folder i.e.
 
 ```sh
 cd etasitsit-frontend
 ```
 
-* Install project dependencies i.e.
+- Install project dependencies i.e.
 
 ```sh
 yarn install
 ```
 
-* Start the appliaction, defaults to `0.0.0.0:3000` which can be accessed by visiting [localhost:3000](http://localhost:3000) i.e.
+- Start the appliaction, defaults to `0.0.0.0:3000` which can be accessed by visiting [localhost:3000](http://localhost:3000) i.e.
 
 ```sh
 yarn start
