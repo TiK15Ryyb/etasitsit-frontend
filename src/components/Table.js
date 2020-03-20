@@ -6,7 +6,6 @@ import { array, number, bool } from 'prop-types';
 import Seat from "./Seat";
 
 const mapStateToProps = state => ({
-    ...state,
 });
 
 const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
