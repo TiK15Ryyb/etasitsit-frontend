@@ -1,0 +1,14 @@
+{
+    "plugins": [
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-syntax-import-meta",
+        ["@babel/plugin-proposal-class-properties", { loose: false }],
+        "@babel/plugin-proposal-json-strings",
+        "@babel/plugin-transform-runtime",
+        "inline-dotenv"
+    ],
+    "presets": [
+        ["@babel/preset-env", {useBuiltIns: 'usage', corejs: {version: 3}}],
+        "@babel/preset-react"
+    ]
+}

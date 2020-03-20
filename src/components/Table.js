@@ -1,31 +1,37 @@
 import React from "react";
 import { connect } from "react-redux";
 import "../App.css";
+import { array, number, bool } from 'prop-types';
 
 import Seat from "./Seat";
 
 const mapStateToProps = state => ({
-  ...state
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
+
+const propTypes = {
+  seatLocations: array.isRequired,
+  numberOfSeats: number.isRequired,
+  tableEndSeatAllowed: bool.isRequired,
+}
 
 const DEFAULT_NUMBER_OF_SEATS = 10;
 
-function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
-  const columns = ["A", "B"];
-  const rows = [...Array(Math.ceil(numberOfSeats / 2)).keys()];
-  const seatLocations = rows
-    .reduce((prev, curr, i) => [...prev, ...columns.map(x => x + curr)], [])
-    .reduce(
-      (prev, curr, i) => [
-        [...prev[0], ...(i % 2 === 0 ? [curr] : [])],
-        [...prev[1], ...(i % 2 !== 0 ? [curr] : [])]
-      ],
-      [[], []]
-    );
+function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // eslint-disable-line
+    const columns = ["A", "B"];
+    const rows = [...Array(Math.ceil(numberOfSeats / 2)).keys()];
+    const seatLocations = rows
+        .reduce((prev, curr/*, i*/) => [...prev, ...columns.map(x => x + curr)], [])
+        .reduce(
+            (prev, curr, i) => [
+                [...prev[0], ...(i % 2 === 0 ? [curr] : [])],
+                [...prev[1], ...(i % 2 !== 0 ? [curr] : [])],
+            ],
+            [[], []]
+        );
 
-  return seatLocations;
+    return seatLocations;
 }
 
 const Table = (props) => {
@@ -43,5 +49,8 @@ const Table = (props) => {
 
   return <pre>{seats}</pre>;
 
+
 }
+Table.propTypes = propTypes;
+
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

@@ -2,14 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import "../App.css";
 import { takeSeatAction } from "../actions/takeSeatAction";
+import { func, string } from 'prop-types';
 
 const mapStateToProps = state => ({
-  ...state
+    ...state,
 });
 
 const mapDispatchToProps = dispatch => ({
-  takeSeatAction: id => dispatch(takeSeatAction(id))
+    takeSeatAction: id => dispatch(takeSeatAction(id)),
 });
+
+const propTypes = {
+  takeSeatAction: func.isRequired,
+  seatLocation: string.isRequired,
+}
+
 
 const Seat = (props) => {
   const seatLocation = props.seatLocation;
@@ -19,6 +26,8 @@ const Seat = (props) => {
   };
 
   return <button onClick={takeSeatAction}>{seatLocation}</button>;
-
 }
+
+Seat.propTypes = propTypes;
+
 export default connect(mapStateToProps, mapDispatchToProps)(Seat);
