@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "../App.css";
 
@@ -10,11 +9,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({});
-
-const propTypes = {
-  seatLocations: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
-  numberOfSeats: PropTypes.number
-}
 
 const DEFAULT_NUMBER_OF_SEATS = 10;
 
@@ -50,7 +44,4 @@ const Table = (props) => {
   return <pre>{seats}</pre>;
 
 }
-
-Table.propTypes = propTypes
-
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

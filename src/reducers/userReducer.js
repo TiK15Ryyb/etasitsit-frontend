@@ -1,4 +1,4 @@
-import {TAKE_SEAT_ACTION, UPDATE_USER_INFO_FORM_ACTION, SUBMIT_USER_INFO_FORM_ACTION} from '../constants/actions'
+import {TAKE_SEAT_ACTION, UPDATE_USER_INFO_FORM_ACTION, SUBMIT_USER_INFO_FORM_ACTION} from './constans/actions'
 export default (state = {}, action) => {
   switch (action.type) {
     case TAKE_SEAT_ACTION:
