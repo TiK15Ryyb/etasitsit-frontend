@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import "../App.css";
 import { string } from "prop-types";
 
@@ -7,18 +6,10 @@ import Sitsit from "../containers/Sitsit";
 import UserForm from "../containers/UserForm";
 import { userInfo } from "../propTypes";
 
-const mapStateToProps = state => ({
-    seat: state.userReducer.seat || "",
-    info: state.userReducer.info || {},
-});
-
-const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
-
 const propTypes = {
     seat: string.isRequired,
     info: userInfo.isRequired,
 };
-
 
 const App = props => {
     const name = props.info.name;
@@ -48,4 +39,4 @@ const App = props => {
 };
 
 App.propTypes = propTypes;
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
