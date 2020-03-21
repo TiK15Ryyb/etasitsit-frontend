@@ -1,70 +1,114 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Etäsitsit Frontend
 
-Will be a little different, readme.md out of date
+[![Build Status](https://jenkins.alatvala.fi/buildStatus/icon?job=TiK15Ryyb%2Fetasitsit-frontend%2Fmaster)](https://jenkins.alatvala.fi/job/TiK15Ryyb/job/etasitsit-frontend/job/master/)
+[![Quality Gate](https://sonar.alatvala.fi/api/badges/gate?key=etasitsit-frontend)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Lines](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=lines)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Percentage of comments](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=comment_lines_density)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Complexity to function](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=function_complexity)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Test errors](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=test_errors)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Test failures](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=test_failures)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Test success density](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=test_success_density)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Unti Test Coverage](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=coverage)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Duplicated Lines Density](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=duplicated_lines_density)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Blocker Violations](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=blocker_violations)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Critical Violations](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=critical_violations)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Code Smells](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=code_smells)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Bugs](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=bugs)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Vulnerabilities](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=vulnerabilities)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![Technical Debt Ratio](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=sqale_debt_ratio)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![New Maintainability Rating](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=new_maintainability_rating)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![New Reliability Rating](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=new_reliability_rating)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
+[![New Security Rating](https://sonar.alatvala.fi/api/badges/measure?key=etasitsit-frontend&metric=new_security_rating)](https://sonar.alatvala.fi/dashboard/index/etasitsit-frontend)
 
-## Available Scripts
+This repository holds the open source code for Etäsitsit Frontend
 
-In the project directory, you can run:
+## How do I get set up?
 
-### `yarn start`
+These steps primarily apply to a non-Windows platform, but it is absolutely possible developing on Windows too.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Have [yarn installed](https://yarnpkg.com/lang/en/docs/install).
+- Have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- (Optional) Have [Docker CE installed](https://docs.docker.com/install/#supported-platforms)
+- (Optional, but highly recommended) Configure your editor of choice to use [ESLint](https://eslint.org/docs/user-guide/getting-started).
+  - For ([Neo](https://github.com/neovim/neovim/wiki/Installing-Neovim))[Vim](https://www.vim.org/download.php) (non-neo >=8), using [Worp/Ale](https://github.com/w0rp/ale#3-installation) is highly recommended. For first time vim users, using this in conjunction with [Vim Bootstrap](https://vim-bootstrap.com/) might be a good start.
+  - For [Visual Studio Code](https://code.visualstudio.com/Download), using [ESLint from the marketplace](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is highly recommended.
+  - For emacs users, `> using emacs`
+- Clone this repository i.e.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```sh
+git clone git@github.com:TiK15Ryyb/etasitsit-frontend.git
+```
 
-### `yarn test`
+- cd into the cloned folder i.e.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+cd etasitsit-frontend
+```
 
-### `yarn build`
+- Install project dependencies i.e.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+yarn install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Start the appliaction, defaults to `0.0.0.0:3000` which can be accessed by visiting [localhost:3000](http://localhost:3000) i.e.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+yarn start
+```
 
-### `yarn eject`
+## CI/CD
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+When making pull requests and branches, [Jenkins](https://jenkins.io/) will run an [automated CI/CD pipeline](https://jenkins.bitsaber.net/job/TiK15Ryyb/job/etasitsit-frontend/job/master/), using technologies such as [SonarQube](https://sonar.alatvala.fi/dashboard?id=etasitsit-frontend), [Robot Framework](https://robotframework.org/) and [Selenium](https://www.seleniumhq.org/), to name a few. This assures a baseline for code quality. Jenkins delivers the [CI/CD Pipeline](https://www.edureka.co/blog/ci-cd-pipeline/) results to GitHub, and this will assist in preventing the merging of suboptimal code into protected branches.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Jenkins Pipeline
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+An image of the current CI/CD pipeline is presented below
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+TBD
 
-## Learn More
+## Running Robot Tests Outside Jenkins
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+These commands are assumed to be run from the root directory of this repository.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+_outside docker_ Start the docker container:
 
-### Code Splitting
+```sh
+docker run \
+    --name jenkins-docker-robot-chrome \
+    -v $(pwd):/home/jenkins/etasitsit-frontend \
+    --rm \
+    -d \
+    --privileged \
+    docker.alatvala.fi/devops/jenkins-chrome-71:latest
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+_outside docker_ Attach to it:
 
-### Analyzing the Bundle Size
+```sh
+docker exec -it jenkins-docker-robot-chrome su - jenkins
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+_inside docker_ Configure PATH and start dev server:
 
-### Making a Progressive Web App
+```sh
+PATH="/opt/tools/yarn/yarn-v1.12.3/bin:/opt/tools/nodejs/node-v11.4.0-linux-x64/bin:$PATH"
+cd etasitsit-frontend
+yarn start &>/dev/null &
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+_inside docker_ Run robot:
 
-### Advanced Configuration
+```sh
+robot -d robot_reports __tests__/robot
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+_outside docker_ Stop the docker image:
 
-### Deployment
+```sh
+docker stop jenkins-docker-robot-chrome
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Authors
 
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[BitSaber](https://github.com/TiK15Ryyb/etasitsit-frontend/graphs/contributors)
