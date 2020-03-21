@@ -14,7 +14,6 @@ const propTypes = {
 const DEFAULT_NUMBER_OF_SEATS = 10;
 
 function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // eslint-disable-line
-    // eslint-disable-line
     const columns = ["A", "B"];
     const rows = [...Array(Math.ceil(numberOfSeats / 2)).keys()];
     const seatLocations = rows

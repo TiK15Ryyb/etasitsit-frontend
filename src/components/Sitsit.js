@@ -4,8 +4,7 @@ import "../App.css";
 import Table from "./Table";
 import { arrayOf, number } from "prop-types";
 import { table } from "../propTypes";
-
-const DEFAULT_NUMBER_OF_TABLES = 2;
+import { DEFAULT_NUMBER_OF_TABLES } from '../constants/defaults';
 
 const propTypes = {
     tables: arrayOf(table),
