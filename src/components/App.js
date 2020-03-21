@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./App.css";
+import "../App.css";
 import { string } from "prop-types";
 
-import Sitsit from "./components/Sitsit";
-import UserForm from "./components/UserForm";
-import { userInfo } from "./propTypes";
+import Sitsit from "../containers/Sitsit";
+import UserForm from "../containers/UserForm";
+import { userInfo } from "../propTypes";
 
 const mapStateToProps = state => ({
     seat: state.userReducer.seat || "",

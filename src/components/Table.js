@@ -1,15 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
 import "../App.css";
 import { array, number, bool } from "prop-types";
 
-import Seat from "./Seat";
+import Seat from "../containers/Seat";
 
-const mapStateToProps = state => ({ // eslint-disable-line
-    // eslint-disable-line
-});
-
-const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
 
 const propTypes = {
     seatLocations: array.isRequired,
@@ -57,4 +51,4 @@ const Table = props => {
 
 Table.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(Table);
+export default Table;

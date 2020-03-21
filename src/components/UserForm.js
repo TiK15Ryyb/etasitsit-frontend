@@ -1,20 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
 import "../App.css";
-import { submitUserInfoAction } from '../actions/submitUserInfoAction';
-import { updateUserInfoFormAction } from '../actions/updateUserInfoFormAction';
 import { userInfo, userFormInfo } from "../propTypes";
 import { func } from "prop-types";
-
-const mapStateToProps = state => ({
-    info: state.userReducer.info || {},
-    form: state.userReducer.form || {},
-});
-
-const mapDispatchToProps = dispatch => ({
-    submitUserInfoAction: info => dispatch(submitUserInfoAction(info)),
-    updateUserInfoFormAction: info => dispatch(updateUserInfoFormAction(info)),
-});
 
 const propTypes = {
     info: userInfo,
@@ -22,7 +9,6 @@ const propTypes = {
     submitUserInfoAction: func,
     updateUserInfoFormAction: func,
 };
-
 
 const UserForm = (props) => {
 
@@ -55,4 +41,4 @@ const UserForm = (props) => {
 
 UserForm.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
+export default UserForm;
