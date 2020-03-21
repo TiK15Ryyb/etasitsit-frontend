@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./App.css";
-import { string, shape } from "prop-types";
+import { string } from "prop-types";
 
 import Sitsit from "./components/Sitsit";
-import Table from "./components/Table";
 import UserForm from "./components/UserForm";
 import { userInfo } from "./propTypes";
 

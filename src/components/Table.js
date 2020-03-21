@@ -15,7 +15,7 @@ const propTypes = {
     seatLocations: array.isRequired,
     numberOfSeats: number.isRequired,
     tableEndSeatAllowed: bool.isRequired,
-}
+};
 
 const DEFAULT_NUMBER_OF_SEATS = 10;
 
@@ -53,7 +53,7 @@ const Table = props => {
     ]);
 
     return <pre>{seats}</pre>;
-}
+};
 
 Table.propTypes = propTypes;
 
