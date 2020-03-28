@@ -45,7 +45,7 @@ const UserForm = (props) => {
       Name:
             <input
                 type="text"
-                value={props.info.name}
+                value={props.form.name}
                 onChange={updateUserInfoForm("name")}
             />
             <input type="submit" value="Submit" />
