@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import "../App.css";
-import { submitUserInfoAction } from "../actions/submitUserInfoAction";
-import { updateUserInfoFormAction } from "../actions/updateUserInfoFormAction";
-import { func, shape, string } from "prop-types";
+import { submitUserInfoAction } from '../actions/submitUserInfoAction';
+import { updateUserInfoFormAction } from '../actions/updateUserInfoFormAction';
+import { userInfo, userFormInfo } from "../propTypes";
+import { func } from "prop-types";
 
 const mapStateToProps = state => ({
     info: state.userReducer.info || {},
@@ -15,7 +16,16 @@ const mapDispatchToProps = dispatch => ({
     updateUserInfoFormAction: info => dispatch(updateUserInfoFormAction(info)),
 });
 
-const UserForm = props => {
+const propTypes = {
+    info: userInfo,
+    form: userFormInfo,
+    submitUserInfoAction: func,
+    updateUserInfoFormAction: func,
+};
+
+
+const UserForm = (props) => {
+
     const submitUserInfo = event => {
         props.submitUserInfoAction(props.form);
         event.preventDefault();
@@ -23,12 +33,10 @@ const UserForm = props => {
 
     const updateUserInfoForm = field => {
         switch (field) {
-        case "name":
-            return event => {
-                props.updateUserInfoFormAction({ name: event.target.value });
-            };
-        default:
-            return () => {};
+        case "name": return event => {
+            props.updateUserInfoFormAction({ name: event.target.value });
+        };
+        default: return () => { };
         }
     };
 
@@ -45,13 +53,6 @@ const UserForm = props => {
     );
 };
 
-UserForm.propTypes = {
-    submitUserInfoAction: func.isRequired,
-    updateUserInfoFormAction: func.isRequired,
-    info: shape({
-        name: string,
-    }),
-    form: string,
-};
+UserForm.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
