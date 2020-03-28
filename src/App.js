@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./App.css";
 import { string } from "prop-types";
 
-import Table from "./components/Table";
+import Sitsit from "./components/Sitsit";
 import UserForm from "./components/UserForm";
 import { userInfo } from "./propTypes";
 
@@ -41,7 +41,7 @@ const App = props => {
           state:
                     {JSON.stringify(props)}
                 </pre>
-                <Table></Table>
+                <Sitsit></Sitsit>
             </header>
         </div>
     );

@@ -7,3 +7,5 @@ export const userInfo = Proptypes.shape({
 export const userFormInfo = Proptypes.shape({
     nimi : Proptypes.string,
 });
+
+export const table = Proptypes.arrayOf(Proptypes.arrayOf(Proptypes.string));
