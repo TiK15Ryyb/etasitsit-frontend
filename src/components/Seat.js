@@ -10,14 +10,20 @@ const propTypes = {
 
 const Seat = props => {
     const seatLocation = props.seatLocation;
+    const icon =
+        (Number(seatLocation.slice(-1)) +
+            (seatLocation[seatLocation.length - 2] === "A" ? 0 : 1)) %
+            2 ===
+        0
+            ? "👩‍🎓"
+            : "👨‍🎓";
     const takeSeat = () => {
         props.takeSeatAction(seatLocation);
     };
     //TODO larger font
     return (
         <button onClick={takeSeat}>
-            {" "}
-            {props.taken === seatLocation ? "👨‍🎓" : "🪑"}
+            <h1>{props.taken === seatLocation ? icon : "🪑"}</h1>
         </button>
     );
 };
