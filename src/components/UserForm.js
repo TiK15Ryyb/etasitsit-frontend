@@ -10,8 +10,7 @@ const propTypes = {
     updateUserInfoFormAction: func,
 };
 
-const UserForm = (props) => {
-
+const UserForm = props => {
     const submitUserInfo = event => {
         props.submitUserInfoAction(props.form);
         event.preventDefault();
@@ -19,16 +18,20 @@ const UserForm = (props) => {
 
     const updateUserInfoForm = field => {
         switch (field) {
-        case "name": return event => {
-            props.updateUserInfoFormAction({ name: event.target.value });
-        };
-        default: return () => { };
+            case "name":
+                return event => {
+                    props.updateUserInfoFormAction({
+                        name: event.target.value,
+                    });
+                };
+            default:
+                return () => {};
         }
     };
 
     return (
         <form onSubmit={submitUserInfo}>
-      Name:
+            Name:
             <input
                 type="text"
                 value={props.form.name}

@@ -15,7 +15,7 @@ const App = props => {
     const name = props.info.name;
     const seatSituation = props.seat ? (
         <h1>
-      Your seat is {props.seat}
+            Your seat is {props.seat}
             {name ? ", " + name : ""}.
         </h1>
     ) : (
@@ -29,7 +29,7 @@ const App = props => {
                 {seatSituation}
                 <pre>
                     {" "}
-          state:
+                    state:
                     {JSON.stringify(props)}
                 </pre>
                 <Sitsit></Sitsit>

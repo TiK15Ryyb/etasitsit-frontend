@@ -4,7 +4,6 @@ import { array, number, bool } from "prop-types";
 
 import Seat from "../containers/Seat";
 
-
 const propTypes = {
     seatLocations: array.isRequired,
     numberOfSeats: number.isRequired,
@@ -13,7 +12,7 @@ const propTypes = {
 
 const DEFAULT_NUMBER_OF_SEATS = 10;
 
-function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // eslint-disable-line
+function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
     const columns = ["A", "B"];
     const rows = [...Array(Math.ceil(numberOfSeats / 2)).keys()];
     const seatLocations = rows
@@ -28,7 +27,9 @@ function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) { // es
             ],
             [[], []]
         );
-
+    if (tableEndSeatAllowed) {
+        //TODO Add end seats
+    }
     return seatLocations;
 }
 

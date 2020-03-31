@@ -10,8 +10,7 @@ const propTypes = {
 const Seat = props => {
     const seatLocation = props.seatLocation;
 
-    const takeSeat = event => { // eslint-disable-line
-        // eslint-disable-line
+    const takeSeat = () => {
         props.takeSeatAction(seatLocation);
     };
 

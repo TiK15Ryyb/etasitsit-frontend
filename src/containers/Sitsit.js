@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Sitsit from '../components/Sitsit';
+import Sitsit from "../components/Sitsit";
 
 const mapStateToProps = state => ({}); //eslint-disable-line
 
