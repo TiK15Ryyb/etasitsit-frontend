@@ -1,10 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 import "../App.css";
 
 import Table from "./Table";
 import { arrayOf, number } from "prop-types";
 import { table } from "../propTypes";
-import { DEFAULT_NUMBER_OF_TABLES } from "../constants/defaults";
+import { DEFAULT_NUMBER_OF_TABLES } from "../constants/components";
+
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = () => ({});
 
 const propTypes = {
     tables: arrayOf(table),
@@ -26,4 +31,4 @@ const Sitsit = props => {
 
 Sitsit.propTypes = propTypes;
 
-export default Sitsit;
+export default connect(mapStateToProps, mapDispatchToProps)(Sitsit);

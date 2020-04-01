@@ -1,16 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 import "../App.css";
-import { DEFAULT_NUMBER_OF_SEATS } from "../constants/components";
 import { array, number, bool } from "prop-types";
 
-import Seat from "../containers/Seat";
-import { DEFAULT_NUMBER_OF_SEATS } from "../constants/defaults";
+import Seat from "./Seat";
+
+import { DEFAULT_NUMBER_OF_SEATS } from "../constants/components";
+
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = () => ({});
 
 const propTypes = {
     seatLocations: array.isRequired,
     numberOfSeats: number.isRequired,
     tableEndSeatAllowed: bool.isRequired,
-    tableId: Int16Array.isRequired,
+    tableId: number.isRequired,
 };
 
 function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
@@ -46,10 +51,9 @@ const Table = props => {
         )),
         xi === 0 ? <br /> : "",
     ]);
-    //x.map(y => <Seat key={`${x}:${y}`} seatLocation={y}></Seat>),
-    //xi === 0 ? <br key={`${x}br`} /> : "",
     return <pre>{seats}</pre>;
 };
 
 Table.propTypes = propTypes;
-export default Table;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
