@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import { DEFAULT_NUMBER_OF_SEATS } from "../constants/components";
 import { array, number, bool } from "prop-types";
 
 import Seat from "../containers/Seat";
@@ -15,18 +16,13 @@ const propTypes = {
 function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
     const columns = ["A", "B"];
     const rows = [...Array(Math.ceil(numberOfSeats / 2)).keys()];
-    const seatLocations = rows
-        .reduce(
-            (prev, curr /*, i*/) => [...prev, ...columns.map(x => x + curr)],
-            []
-        )
-        .reduce(
-            (prev, curr, i) => [
-                [...prev[0], ...(i % 2 === 0 ? [curr] : [])],
-                [...prev[1], ...(i % 2 !== 0 ? [curr] : [])],
-            ],
-            [[], []]
-        );
+    const reduceLocations = (rows, seat) => {
+        return [
+            [...rows[0], columns[0] + seat],
+            [...rows[1], columns[1] + seat],
+        ];
+    };
+    const seatLocations = rows.reduce(reduceLocations, [[], []]);
     if (tableEndSeatAllowed) {
         //TODO Add end seats
     }
@@ -50,10 +46,10 @@ const Table = props => {
         )),
         xi === 0 ? <br /> : "",
     ]);
-
+    //x.map(y => <Seat key={`${x}:${y}`} seatLocation={y}></Seat>),
+    //xi === 0 ? <br key={`${x}br`} /> : "",
     return <pre>{seats}</pre>;
 };
 
 Table.propTypes = propTypes;
-
 export default Table;
