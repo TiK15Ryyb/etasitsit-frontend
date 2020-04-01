@@ -27,12 +27,8 @@ const App = props => {
             <header className="App-header">
                 <UserForm></UserForm>
                 {seatSituation}
-                <pre>
-                    {" "}
-                    state:
-                    {JSON.stringify(props)}
-                </pre>
-                <Sitsit></Sitsit>
+                <pre>state: {JSON.stringify(props)}</pre>
+                <Sitsit />
             </header>
         </div>
     );

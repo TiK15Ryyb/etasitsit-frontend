@@ -4,14 +4,14 @@ import { DEFAULT_NUMBER_OF_SEATS } from "../constants/components";
 import { array, number, bool } from "prop-types";
 
 import Seat from "../containers/Seat";
+import { DEFAULT_NUMBER_OF_SEATS } from "../constants/defaults";
 
 const propTypes = {
     seatLocations: array.isRequired,
     numberOfSeats: number.isRequired,
     tableEndSeatAllowed: bool.isRequired,
+    tableId: Int16Array.isRequired,
 };
-
-const DEFAULT_NUMBER_OF_SEATS = 10;
 
 function createSeatLocations(numberOfSeats, tableEndSeatAllowed = false) {
     const columns = ["A", "B"];
@@ -38,10 +38,16 @@ const Table = props => {
         props.seatLocations ||
         createSeatLocations(numberOfSeats, props.tableEndSeatAllowed);
     const seats = seatLocations.map((x, xi) => [
-        x.map(y => <Seat key={`${x}:${y}`} seatLocation={y}></Seat>),
-        xi === 0 ? <br key={`${x}br`} /> : "",
+        x.map(y => (
+            <Seat
+                key={`${props.tableId}:${y}`}
+                seatLocation={props.tableId + y}
+            ></Seat>
+        )),
+        xi === 0 ? <br /> : "",
     ]);
-
+    //x.map(y => <Seat key={`${x}:${y}`} seatLocation={y}></Seat>),
+    //xi === 0 ? <br key={`${x}br`} /> : "",
     return <pre>{seats}</pre>;
 };
 
