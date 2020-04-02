@@ -1,12 +1,11 @@
 import React from "react";
-import { shallow } from 'enzyme';
+import { shallow } from "enzyme";
 import { UserForm } from "../../src/components/UserForm";
 
-describe('<UserForm />', () =>
-{
-    it('should shallowly render without errors', () => {
-        const userInfoName = 'Rias Gremory';
-        const userFormInfoName = 'Rias-Chan~';
+describe("<UserForm />", () => {
+    it("should shallowly render without errors", () => {
+        const userInfoName = "Rias Gremory";
+        const userFormInfoName = "Rias-Chan~";
         const userInfo = {
             name: userInfoName,
         };
@@ -21,10 +20,10 @@ describe('<UserForm />', () =>
                 updateUserInfoFormAction={() => false}
             />
         );
-        const inputSelector = 'input.inputUserFormName';
+        const inputSelector = "input.inputUserFormName";
         const inputUserFormName = wrapper.find(inputSelector);
 
         expect(inputUserFormName).toHaveLength(1);
-        expect(inputUserFormName.prop('value')).toEqual(userFormInfoName);
+        expect(inputUserFormName.prop("value")).toEqual(userFormInfoName);
     });
 });

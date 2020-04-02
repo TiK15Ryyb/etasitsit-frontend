@@ -1,15 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
-import "../App.css";
 import { array, number, bool } from "prop-types";
 
-import Seat from "./Seat";
+import Seat from "../containers/Seat";
+import "../App.css";
 
 import { DEFAULT_NUMBER_OF_SEATS } from "../constants/components";
-
-const mapStateToProps = () => ({});
-
-const mapDispatchToProps = () => ({});
 
 const propTypes = {
     seatLocations: array.isRequired,
@@ -55,6 +50,4 @@ const Table = props => {
 };
 
 Table.propTypes = propTypes;
-
-export { Table };
-export default connect(mapStateToProps, mapDispatchToProps)(Table);
+export default Table;

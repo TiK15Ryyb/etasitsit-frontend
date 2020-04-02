@@ -1,16 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
-import "../App.css";
-import { takeSeatAction } from "../actions/takeSeatAction";
 import { func, string } from "prop-types";
 
-const mapStateToProps = state => ({
-    taken: state.userReducer.seat || "",
-});
-
-const mapDispatchToProps = dispatch => ({
-    takeSeatAction: id => dispatch(takeSeatAction(id)),
-});
+import "../App.css";
 
 const propTypes = {
     takeSeatAction: func.isRequired,
@@ -39,5 +30,4 @@ const Seat = props => {
 };
 
 Seat.propTypes = propTypes;
-
-export default connect(mapStateToProps, mapDispatchToProps)(Seat);
+export default Seat;
