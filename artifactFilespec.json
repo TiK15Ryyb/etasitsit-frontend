@@ -1,8 +1,8 @@
 {
   "files": [
     {
-      "pattern": "builds/latvala-fireworks-(*)-b(*).tar.gz",
-      "target": "latvala-fireworks/{1}-b{2}/software.tar.gz"
+      "pattern": "builds/etasitsit-frontend-(*)-b(*).tar.gz",
+      "target": "etasitsit-frontend/{1}-b{2}/software.tar.gz"
     }
   ]
 }

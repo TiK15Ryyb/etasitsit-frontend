@@ -1,12 +1,12 @@
 {
-  "name": "latvala-fireworks",
-  "version": "0.2.1",
-  "description": "A portal for new year's fireworks offers from Säästötalo Latvala in Lohja",
+  "name": "etasitsit-frontend",
+  "version": "0.1.0",
+  "description": "Etäsitsit Frontend",
   "main": "main.js",
-  "repository": "git@bitbucket.org:OyAimoLatvalaAb/latvala-fireworks.git",
-  "author": "Oy Aimo Latvala Ab / Axel Latvala",
+  "repository": "git@github.com:TiK15Ryyb/etasitsit-frontend.git",
+  "author": "TiK15Ryyb",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "dependencies": {},
   "scripts": {
     "start": "webpack-dev-server --hot --inline --config webpack.dev.js --progress",
