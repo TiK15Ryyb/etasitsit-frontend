@@ -1,3 +1,4 @@
+def safeBranchName = "there/is_some:kind!of~error.."
 pipeline {
     agent {
         label 'nodejs'
@@ -10,7 +11,7 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                sh 'yarn test || true'
+                sh 'yarn test'
             }
         }
         stage('Static code analysis') {
@@ -44,6 +45,20 @@ pipeline {
                 sh 'yarn package'
             }
         }
+        stage('Deploy') {
+            steps {
+                script {
+                    safeBranchName = env.BRANCH_NAME.replaceAll("[^a-zA-Z0-9]+","_")
+                }
+                withCredentials([sshUserPrivateKey(credentialsId: "JENKINS_MASTER_SSH", keyFileVariable: 'keyfile')]) {
+                    print "Validating branch name '${safeBranchName}'"
+                    sh "[ -n '${safeBranchName}' ]"
+                    sh "ssh -i '${keyfile}' -o StrictHostKeyChecking=no jenkins-autodeploy@tik15ryyb.alatvala.fi uptime"
+                    sh "ssh -i '${keyfile}' jenkins-autodeploy@tik15ryyb.alatvala.fi 'rm -rf /var/www/tik15ryyb/${safeBranchName} || true'"
+                    sh "scp -i '${keyfile}' -r dist jenkins-autodeploy@tik15ryyb.alatvala.fi:/var/www/tik15ryyb/${safeBranchName}"
+                }
+            }
+        }
         stage('Publish Artifacts') {
             when {
                 expression { GIT_BRANCH == 'master' }
@@ -61,28 +76,5 @@ pipeline {
                 }
             }
         }
-/*        stage('Robot Tests') {
-            environment {
-                PATH = "$PATH:/opt/chromedriver/"
-            }
-            steps {
-                sh 'cp -r dist heroku_docker/app'
-                sh 'docker build --tag incy-io-kiosk-frontend .'
-                sh 'docker run -d --name incy-io-kiosk-frontend -p 3000:3000 incy-io-kiosk-frontend'
-                sh 'robot -d robot_reports __tests__/robot'
-                sh 'docker stop incy-io-kiosk-frontend'
-                step([
-                    $class : 'RobotPublisher',
-                    outputPath: "./robot_reports/",
-                    outputFileName : "output.xml",
-                    disableArchiveOutput : false,
-                    reportFileName: "report.html",
-                    logFileName: "log.html",
-                    passThreshold : 100,
-                    unstableThreshold: 95.0,
-                    otherFiles : "*.png"
-                ])
-            }
-        }*/
     }
 }
