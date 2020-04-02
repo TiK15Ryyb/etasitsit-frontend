@@ -56,4 +56,5 @@ const Table = props => {
 
 Table.propTypes = propTypes;
 
+export { Table };
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

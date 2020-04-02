@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                sh 'yarn test || true'
+                sh 'yarn test'
             }
         }
         stage('Static code analysis') {

@@ -26,9 +26,10 @@ const Sitsit = props => {
     const numberOfTables = props.numberOfTables || DEFAULT_NUMBER_OF_TABLES;
     const tables = props.tables || createTables(numberOfTables);
 
-    return <div>{tables}</div>;
+    return <div className='tablesDiv'>{tables}</div>;
 };
 
 Sitsit.propTypes = propTypes;
 
+export { Sitsit, createTables };
 export default connect(mapStateToProps, mapDispatchToProps)(Sitsit);

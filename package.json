@@ -83,8 +83,8 @@
     "browser": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "<rootDir>/src/**/*.{js}",
-      "!<rootDir>/src/node_modules**"
+      "<rootDir>/src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/**/*.*"
     ],
     "verbose": false
   }

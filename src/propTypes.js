@@ -1,11 +1,11 @@
-import Proptypes from "prop-types";
+import { shape, string, object } from "prop-types";
 
-export const userInfo = Proptypes.shape({
-    nimi: Proptypes.string,
+export const userInfo = shape({
+    nimi: string,
 });
 
-export const userFormInfo = Proptypes.shape({
-    nimi: Proptypes.string,
+export const userFormInfo = shape({
+    nimi: string,
 });
 
-export const table = Proptypes.arrayOf(Proptypes.arrayOf(Proptypes.string));
+export const table = object;

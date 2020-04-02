@@ -1,9 +1,16 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import App from "../src/App";
+import { shallow } from 'enzyme';
+import { App } from "../src/App";
 
-test("renders learn react link", () => {
-    const { getByText } = render(<App />);
-    const linkElement = getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
+describe('<App />', () =>
+{
+    it('should shallowly render without errors', () => {
+        const wrapper = shallow(
+            <App
+                seat={'this is seat'}
+                info={{ nimi: 'Rias-Chan~'}}
+            />
+        );
+        expect(wrapper.find('.App')).toHaveLength(1);
+    });
 });

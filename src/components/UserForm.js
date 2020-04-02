@@ -46,6 +46,7 @@ const UserForm = props => {
         <form onSubmit={submitUserInfo}>
             Name:
             <input
+                className="inputUserFormName"
                 type="text"
                 value={props.form.name}
                 onChange={updateUserInfoForm("name")}
@@ -57,4 +58,5 @@ const UserForm = props => {
 
 UserForm.propTypes = propTypes;
 
+export { UserForm };
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm);

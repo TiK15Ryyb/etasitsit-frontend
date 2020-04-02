@@ -43,4 +43,5 @@ const App = props => {
 };
 
 App.propTypes = propTypes;
+export { App };
 export default connect(mapStateToProps, mapDispatchToProps)(App);
