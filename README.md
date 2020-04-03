@@ -57,15 +57,93 @@ yarn install
 yarn start
 ```
 
+After this, one should be able to write code. But before pushing branches, one should make sure the linter does not complain, and that tests pass. The linter can be manually run by executing
+
+```sh
+yarn lint
+```
+
+After which one should fix the issues reported. There is also a built-in quality of life command to try and fix these liting errors automatically, and that can be run by executing
+
+```sh
+yarn esfix
+```
+
+After the linting is fixed, please make sure to run tests:
+
+```sh
+yarn test
+```
+
+If the tests are not succeeding, you can continuously run them while editing the code like this:
+
+```sh
+yarn devtest
+```
+
+Not having tests succeeding and linter happy won't permit a merge.
+
+## Filesystem structure
+
+```sh
+├── artifactFilespec.json    <-- Don't touch
+├── assets                   <-- Put files like images and fonts
+│                                in here, they will be copied to
+│                                the root directory of the project
+├── babel.config.js          <-- Don't touch
+├── builds                   <-- Built software distributables
+│                                will appear here after packaging
+├── coverage                 <-- Ignore
+├── dist                     <-- Files in this folder get packaged
+│                                as the distributable
+├── docs                     <-- READMEs and images documenting
+│                                the project go here
+├── Jenkinsfile              <-- Don't touch
+├── package.json             <-- Important file, don't touch
+│                                if you don't know what you are
+│                                doing.
+├── README.md                <-- Our main README
+├── sonar-project.properties <-- Don't touch
+├── src                      <-- All of our JS/CSS/html source
+│   │                            goes here
+│   ├── actions              <-- Redux actions go here
+│   ├── components           <-- React components go here
+│   ├── constants            <-- Constants for actions and whatnot
+│   │                            go inside here, as to more easily
+│   │                            spot typos etc.
+│   ├── containers           <-- Redux enabled containers
+│   │                            for React components go here
+│   └── reducers             <-- Redux reducers go here
+├── __tests__                <-- Main test directory
+│   ├── components           <-- Tests for React components
+│   ├── containers           <-- Tests for Redux containers
+│   └── robot                <-- RobotFramework Integration tests
+├── webpack.common.js        <-- Don't touch
+├── webpack.dev.js           <-- Don't touch
+├── webpack.prod.js          <-- Don't touch
+└── yarn.lock                <-- Related to package.json, Don't
+                                 touch
+```
+
 ## CI/CD
 
-When making pull requests and branches, [Jenkins](https://jenkins.io/) will run an [automated CI/CD pipeline](https://jenkins.bitsaber.net/job/TiK15Ryyb/job/etasitsit-frontend/job/master/), using technologies such as [SonarQube](https://sonar.alatvala.fi/dashboard?id=etasitsit-frontend), [Robot Framework](https://robotframework.org/) and [Selenium](https://www.seleniumhq.org/), to name a few. This assures a baseline for code quality. Jenkins delivers the [CI/CD Pipeline](https://www.edureka.co/blog/ci-cd-pipeline/) results to GitHub, and this will assist in preventing the merging of suboptimal code into protected branches.
+When making pull requests and branches, [Jenkins](https://jenkins.io/) will run an [automated CI/CD pipeline](https://jenkins.alatvala.fi/job/TiK15Ryyb/job/etasitsit-frontend/job/master/), using technologies such as [SonarQube](https://sonar.alatvala.fi/dashboard?id=etasitsit-frontend), [Robot Framework](https://robotframework.org/) and [Selenium](https://www.seleniumhq.org/), to name a few. This assures a baseline for code quality. Jenkins delivers the [CI/CD Pipeline](https://www.edureka.co/blog/ci-cd-pipeline/) results to GitHub, and this will assist in preventing the merging of suboptimal code into protected branches.
+
+After the CI/CD pipeline runs successfully, the branch will be available at [https://[branch_name].tik15ryyb.alatvala.fi](https://[branch_name].tik15ryyb.alatvala.fi). Any special characters not in the english alphabet (and numerals) will be substituted with a `_` as is discussed in [#27](https://github.com/TiK15Ryyb/etasitsit-frontend/pull/27).
 
 ### Jenkins Pipeline
 
-An image of the current CI/CD pipeline is presented below
+An image of the current CI/CD pipeline is presented below.
 
-TBD
+[![Jenkins CI Pipeline](docs/img/etasitsit-frontend-jenkins.png?raw=true "Jenkins CI Pipeline")](https://jenkins.alatvala.fi/job/TiK15Ryyb/job/etasitsit-frontend/job/master/)
+
+### SonarQube Static Code Analysis
+
+An image of the current SonarQube Dashboard is presented below.
+
+[![SonarQube Dashboard](docs/img/etasitsit-frontend-sonar.png?raw=true "SonarQube Dashboard")](https://sonar.alatvala.fi/dashboard?id=etasitsit-frontend)
+
+An image of the current CI/CD pipeline is presented below
 
 ## Running Robot Tests Outside Jenkins
 
@@ -111,4 +189,4 @@ docker stop jenkins-docker-robot-chrome
 
 ## Authors
 
-[BitSaber](https://github.com/TiK15Ryyb/etasitsit-frontend/graphs/contributors)
+[TiK15Ryyb](https://github.com/TiK15Ryyb/etasitsit-frontend/graphs/contributors)
