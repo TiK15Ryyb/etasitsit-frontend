@@ -17,12 +17,17 @@ export default (state = {}, action) => {
             if (isNaN(numberOfTables)) {
                 numberOfTables = state.sitsit.numberOfTables;
             }
+            var seatsPerTable = parseInt(action.payload.seatsPerTable);
+            if (isNaN(seatsPerTable)) {
+                seatsPerTable = state.sitsit.seatsPerTable;
+            }
             return {
                 ...state,
                 sitsit: {
                     ...state.sitsit,
                     ...action.payload,
                     numberOfTables: numberOfTables,
+                    seatsPerTable: seatsPerTable,
                 },
             };
         }

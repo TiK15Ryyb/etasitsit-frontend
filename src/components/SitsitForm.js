@@ -13,8 +13,8 @@ const propTypes = {
 
 const SitsitForm = props => {
     const submitSitsit = event => {
-        props.submitSitsitAction(props.sitsitForm);
         event.preventDefault();
+        props.submitSitsitAction(props.sitsitForm);
     };
 
     const updateSitsitForm = field => {
@@ -32,7 +32,11 @@ const SitsitForm = props => {
                     });
                 };
             default:
-                return () => { };
+                return event => {
+                    props.updateSitsitFormAction({
+                        [field]: event.target.value,
+                    });
+                };
         }
     };
 
@@ -50,6 +54,13 @@ const SitsitForm = props => {
                 type="text"
                 value={props.sitsitForm.numberOfTables}
                 onChange={updateSitsitForm("numberOfTables")}
+            />
+            <br></br>
+            Seats per Table:
+            <input
+                type="text"
+                value={props.sitsitForm.seatsPerTable}
+                onChange={updateSitsitForm("seatsPerTable")}
             />
             <input type="submit" value="Submit" />
         </form>

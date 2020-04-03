@@ -13,12 +13,13 @@ export const table = object;
 export const sitsit = shape({
     name: string,
     numberOfTables: number,
+    seatsPerTable: number,
     tables: arrayOf(table),
 });
 
 export const sitsitForm = shape({
     name: string,
-    numberOfTables: number,
-    tables: arrayOf(table),
+    numberOfTables: string,
+    seatPerTable: string,
 });
 
