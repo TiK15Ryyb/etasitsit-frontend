@@ -129,6 +129,8 @@ Not having tests succeeding and linter happy won't permit a merge.
 
 When making pull requests and branches, [Jenkins](https://jenkins.io/) will run an [automated CI/CD pipeline](https://jenkins.alatvala.fi/job/TiK15Ryyb/job/etasitsit-frontend/job/master/), using technologies such as [SonarQube](https://sonar.alatvala.fi/dashboard?id=etasitsit-frontend), [Robot Framework](https://robotframework.org/) and [Selenium](https://www.seleniumhq.org/), to name a few. This assures a baseline for code quality. Jenkins delivers the [CI/CD Pipeline](https://www.edureka.co/blog/ci-cd-pipeline/) results to GitHub, and this will assist in preventing the merging of suboptimal code into protected branches.
 
+After the CI/CD pipeline runs successfully, the branch will be available at [https://[branch_name].tik15ryyb.alatvala.fi](https://[branch_name].tik15ryyb.alatvala.fi). Any special characters not in the english alphabet (and numerals) will be substituted with a `_` as is discussed in [#27](https://github.com/TiK15Ryyb/etasitsit-frontend/pull/27).
+
 ### Jenkins Pipeline
 
 An image of the current CI/CD pipeline is presented below.
