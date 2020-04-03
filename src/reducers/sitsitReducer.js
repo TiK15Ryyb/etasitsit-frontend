@@ -1,10 +1,10 @@
 import {
-    UPDATE_SITSIT_INFO_FORM_ACTION,
-    SUBMIT_SITSIT_INFO_FORM_ACTION,
+    UPDATE_SITSIT_FORM_ACTION,
+    SUBMIT_SITSIT_FORM_ACTION,
 } from "../constants/actions";
 export default (state = {}, action) => {
     switch (action.type) {
-        case UPDATE_SITSIT_INFO_FORM_ACTION:
+        case UPDATE_SITSIT_FORM_ACTION:
             return {
                 ...state,
                 sitsitForm: {
@@ -12,14 +12,20 @@ export default (state = {}, action) => {
                     ...action.payload,
                 },
             };
-        case SUBMIT_SITSIT_INFO_FORM_ACTION:
+        case SUBMIT_SITSIT_FORM_ACTION: {
+            var numberOfTables = parseInt(action.payload.numberOfTables);
+            if (isNaN(numberOfTables)) {
+                numberOfTables = state.sitsit.numberOfTables;
+            }
             return {
                 ...state,
                 sitsit: {
-                    ...state.info,
+                    ...state.sitsit,
                     ...action.payload,
+                    numberOfTables: numberOfTables,
                 },
             };
+        }
         default:
             return state;
     }

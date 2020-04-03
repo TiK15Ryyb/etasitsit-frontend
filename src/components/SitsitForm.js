@@ -25,6 +25,12 @@ const SitsitForm = props => {
                         name: event.target.value,
                     });
                 };
+            case "numberOfTables":
+                return event => {
+                    props.updateSitsitFormAction({
+                        numberOfTables: event.target.value,
+                    });
+                };
             default:
                 return () => { };
         }
@@ -34,10 +40,16 @@ const SitsitForm = props => {
         <form onSubmit={submitSitsit}>
             Name:
             <input
-                className="inputSitsitFormName"
                 type="text"
                 value={props.sitsitForm.name}
                 onChange={updateSitsitForm("name")}
+            />
+            <br></br>
+            Number of Tables:
+            <input
+                type="text"
+                value={props.sitsitForm.numberOfTables}
+                onChange={updateSitsitForm("numberOfTables")}
             />
             <input type="submit" value="Submit" />
         </form>

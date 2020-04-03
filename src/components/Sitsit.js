@@ -1,15 +1,13 @@
 import React from "react";
-import { arrayOf, number } from "prop-types";
 
 import Table from "../containers/Table";
-import { table } from "../propTypes";
+import { sitsit } from "../propTypes";
 import "../App.css";
 
 import { DEFAULT_NUMBER_OF_TABLES } from "../constants/components";
 
 const propTypes = {
-    tables: arrayOf(table),
-    numberOfTables: number,
+    sitsit: sitsit,
 };
 
 function createTables(numberOfTables) {
@@ -19,8 +17,8 @@ function createTables(numberOfTables) {
 }
 
 const Sitsit = props => {
-    const numberOfTables = props.numberOfTables || DEFAULT_NUMBER_OF_TABLES;
-    const tables = props.tables || createTables(numberOfTables);
+    const numberOfTables = props.sitsit.numberOfTables || DEFAULT_NUMBER_OF_TABLES;
+    const tables = props.sitsit.tables || createTables(numberOfTables);
 
     return <div className="tablesDiv">{tables}</div>;
 };

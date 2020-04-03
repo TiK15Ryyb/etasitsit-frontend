@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import Sitsit from "../components/Sitsit";
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+    sitsit: state.sitsitReducer.sitsit || {},
+});
 
 const mapDispatchToProps = () => ({});
 
