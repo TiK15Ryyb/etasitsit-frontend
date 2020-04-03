@@ -3,6 +3,7 @@ import { string } from "prop-types";
 
 import Sitsit from "../containers/Sitsit";
 import UserForm from "../containers/UserForm";
+import SitsitForm from "../containers/SitsitForm";
 import { userInfo } from "../propTypes";
 import "../App.css";
 
@@ -26,6 +27,7 @@ const App = props => {
         <div className="App">
             <header className="App-header">
                 <UserForm></UserForm>
+                <SitsitForm></SitsitForm>
                 {seatSituation}
                 <pre>state: {JSON.stringify(props)}</pre>
                 <Sitsit />

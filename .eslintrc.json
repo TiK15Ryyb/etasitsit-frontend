@@ -5,7 +5,10 @@
         "node": false,
         "jest": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
     "parser": "babel-eslint",
     "settings": {
         "react": {
@@ -13,10 +16,19 @@
         }
     },
     "rules": {
-        "indent": [2, 4, { "SwitchCase": 1 }],
+        "indent": [
+            2,
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
         "no-console": 1,
         "no-trailing-spaces": 2,
-        "semi": ["error", "always"],
+        "semi": [
+            "error",
+            "always"
+        ],
         "comma-dangle": [
             "error",
             {

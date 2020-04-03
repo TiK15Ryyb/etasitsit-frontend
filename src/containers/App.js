@@ -4,6 +4,7 @@ import App from "../components/App";
 const mapStateToProps = state => ({
     seat: state.userReducer.seat || "",
     info: state.userReducer.info || {},
+    sitsit: state.sitsitReducer.sitsit || {},
 });
 
 const mapDispatchToProps = () => ({});
